@@ -2,9 +2,11 @@ package com.example.micasa.controller;
 
 import com.example.micasa.entity.User;
 import com.example.micasa.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class UserController
 {
@@ -25,6 +27,7 @@ public class UserController
     @GetMapping("/get/user/{userId}")
     public User getByUserId(@PathVariable String userId)
     {
+        log.info("Logged.....");
         return this.userService.findByUserId(userId);
     }
 }
